@@ -15,14 +15,14 @@ public class Number {
         this.inputValue = inputValue;  // this.inputValue = 0
         this.maxValue = maxValue;      // 0
         this.minValue = minValue;      // 0
-		    this.summary = summary;        // 0
+        this.summary = summary;        // 0
     } 
   
-    // Methods
-	public int getMax(int num1,int num2)
-	{
-		return num1 > num2 ? num1 : num2;
-	}
+  // Methods
+  public int getMax(int num1,int num2)
+  {
+    return num1 > num2 ? num1 : num2;
+  }
   public int getMin(int num1,int num2) 
   { 
     return num1 < num2 ? num1 : num2;
@@ -35,23 +35,23 @@ public class Number {
   { 
     return "\nDetails : \n * Last Input Number = " + this.inputValue + 
 				               "\n * Max Number = " + this.maxValue + 
-					             "\n * Min Number = " + this.minValue +
-				    	         "\n * Summary = " + this.summary;
+					       "\n * Min Number = " + this.minValue +
+				    	       "\n * Summary = " + this.summary;
   }   
 	
 	
 	// Main 
 public static void Main(String[] args)
 {
-		bool showMenu = true;
-		Number number = new Number(0,0,0,0);         // new instance of class Number
-		//InputNumbers(number);
-		//Print(number.maxValue);
-		
-	  while (showMenu)
-		{
-			showMenu = Menu(number);
-		}
+   bool showMenu = true;
+   Number number = new Number(0,0,0,0);         // new instance of class Number
+   //InputNumbers(number);
+   //Print(number.maxValue);
+   
+    while (showMenu)
+    {
+      showMenu = Menu(number);
+    }
  }
 public static bool Menu(Number number)
 {
