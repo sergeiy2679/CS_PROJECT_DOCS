@@ -1,0 +1,129 @@
+using System; 
+  
+// Class 
+public class Number { 
+  
+	// Instance Variables 
+    int inputValue; 
+    int maxValue; 
+    int minValue;  
+	  int summary;
+  
+    // Constructor
+    public Number(int inputValue, int maxValue, int minValue, int summary) 
+    { 
+        this.inputValue = inputValue;  // this.inputValue = 0
+        this.maxValue = maxValue;      // 0
+        this.minValue = minValue;      // 0
+		    this.summary = summary;        // 0
+    } 
+  
+    // Methods
+	public int getMax(int num1,int num2)
+	{
+		return num1 > num2 ? num1 : num2;
+	}
+  public int getMin(int num1,int num2) 
+  { 
+    return num1 < num2 ? num1 : num2;
+  }   
+	public int getSum(int numToAdd)
+	{
+		return this.summary + numToAdd;
+	}
+  public string stringDetails() 
+  { 
+    return "\nDetails : \n * Last Input Number = " + this.inputValue + 
+				               "\n * Max Number = " + this.maxValue + 
+					             "\n * Min Number = " + this.minValue +
+				    	         "\n * Summary = " + this.summary;
+  }   
+	
+	
+	// Main 
+public static void Main(String[] args)
+{
+		bool showMenu = true;
+		Number number = new Number(0,0,0,0);         // new instance of class Number
+		//InputNumbers(number);
+		//Print(number.maxValue);
+		
+	  while (showMenu)
+		{
+			showMenu = Menu(number);
+		}
+ }
+public static bool Menu(Number number)
+{
+		Console.Clear();
+		Console.WriteLine("Choose an option:");
+		Console.WriteLine("1) Input Numbers");
+		Console.WriteLine("2) Print Max Number");
+		Console.WriteLine("3) Print Min Number");
+		Console.WriteLine("4) Print Summary");
+		Console.WriteLine("5) Exit");
+		Console.Write("\r\nSelect an option: ");
+		
+		switch (Console.ReadLine())
+		{
+			case "1":
+				InputNumbers(number);
+				return true;
+			case "2":
+				Print(number.maxValue);
+				return true;
+			case "3":
+				Print(number.minValue);
+				return true;
+			case "4":
+				Print(number.summary);
+				return true;
+			case "5":
+				return false;
+			default:
+				return true;
+	}
+}
+	
+	public static void InputNumbers(Number number)
+	{			
+	   int n = 3;
+ 	   int i = 0;
+	   int maxInput = 0;
+	   int minInput=0;
+		
+	   Console.WriteLine("======= Enter " + n + "  Numbers ====== \n ");
+	
+	   //  לולאה מתבצעת לפחות פעם אחת
+ 	   do{
+		   if(i==n+1)
+		   {
+			     Console.WriteLine(number.stringDetails());
+		   }
+		   
+		   i++;
+		   
+		   Console.Write("Enter Number" + i + " : ");		 
+		   int input = int.Parse(Console.ReadLine());
+		   
+		   number.inputValue = input;
+		   
+		   int max = number.getMax(maxInput,input);
+		   maxInput = max;
+		   number.maxValue = maxInput;
+		   
+		   int min = number.getMin(minInput,input);
+		   minInput = min;
+		   number.minValue = minInput;
+		   
+		   int sum = number.getSum(input);
+		   number.summary = sum;
+		 
+	   }while (i <= n+1);
+	}
+	
+	public static void Print(int maxValue)
+	{
+		Console.Write("The Max Number : " + maxValue);
+	}
+}
